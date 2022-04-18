@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 
 from pathlib import Path
-
+# pip install pymysql==1.0.2
 import pymysql
 # pymysql django ORM 연동
 pymysql.install_as_MySQLdb()
@@ -29,7 +29,7 @@ SECRET_KEY = '80sdimflyb9m#f0f&#alqa@$-j^$ee_cs2^%j)ih)jphazizbb'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
