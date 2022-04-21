@@ -160,6 +160,9 @@ def post_list_first(request):
     return render(request, 'blog/post_list.html', {'post_list': posts})
 
 
+
+# http://localhost:8000/blog/api/login/
+# ?username=python&password=python
 @api_view(['POST'])
 @permission_classes((AllowAny,))
 def login(request):
