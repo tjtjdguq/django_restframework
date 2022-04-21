@@ -24,6 +24,9 @@
             <a href="{% url 'login' %}?next={{request.path}}" class="top-menu">
                 <span class="glyphicon glyphicon-lock"></span>
             </a>
+            <a href="{% url 'register' %}?next={{request.path}}" class="top-menu">
+                <span class="glyphicon glyphicon-user"></span>
+            </a>
         {% endif %}
         <h1><a href="{% url 'post_list_home' %}">Django Blog</a></h1>
     </div>

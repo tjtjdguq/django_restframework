@@ -1,5 +1,6 @@
 from django.contrib.auth import authenticate
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.forms import UserCreationForm
 from django.http import HttpResponse
 from django.shortcuts import render, get_object_or_404, redirect
 from django.utils import timezone
@@ -189,3 +190,14 @@ def login(request):
     token, _ = Token.objects.get_or_create(user=user)
 
     return Response({'token': token.key}, status=HTTP_200_OK)
+def register(request):
+    if request.method=="POST":
+        form=UserCreationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            username=form.cleaned_data.get('username')
+            password=form.cleaned_data.get('password')
+            return redirect('login')
+    else:
+        form=UserCreationForm()
+    return render(request, 'registration/register.html', {'form': form})
