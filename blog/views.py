@@ -163,10 +163,10 @@ def post_list_first(request):
 @api_view(['POST'])
 @permission_classes((AllowAny,))
 def login(request):
-    #username = request.data.get('username')
-    username = request.GET.get('username')
+    username = request.data.get('username')
+    #username = request.GET.get('username')
     #email = request.data.get('email')
-    password = request.GET.get('password')
+    password = request.data.get('password')
 
     print('===> username ', username)
     print('===> password ', password)
