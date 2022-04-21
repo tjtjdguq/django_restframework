@@ -29,7 +29,7 @@ SECRET_KEY = '80sdimflyb9m#f0f&#alqa@$-j^$ee_cs2^%j)ih)jphazizbb'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -81,18 +81,19 @@ WSGI_APPLICATION = 'mydjango.wsgi.application'
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
     # 'default': {
-    #     'ENGINE': 'django.db.backends.mysql',
-    #     'NAME': 'django_db', # DB명
-    #     'USER': 'python', # 데이터베이스 계정
-    #     'PASSWORD':'python', # 계정 비밀번호
-    #     'HOST':'localhost', # 데이테베이스 IP
-    #     'PORT':'3306', # 데이터베이스 port
+    #     'ENGINE': 'django.db.backends.sqlite3',
+    #     'NAME': BASE_DIR / 'db.sqlite3',
     # }
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'django_db', # DB명
+        'USER': 'python', # 데이터베이스 계정
+        'PASSWORD':'python', # 계정 비밀번호
+        #'HOST':'mysql-svc', # 데이테베이스 IP
+        'HOST':'localhost', # 데이테베이스 IP
+        'PORT':'3306', # 데이터베이스 port
+    }
 }
 
 
@@ -141,5 +142,6 @@ REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [
         'rest_framework.authentication.TokenAuthentication',
     ],
-    'DEFAULT_PERMISSION_CLASSES': ('rest_framework.permissions.IsAuthenticated',)
+    'DEFAULT_PERMISSION_CLASSES': ('rest_framework.permissions.IsAuthenticatedOrReadOnly',)
+    #'DEFAULT_PERMISSION_CLASSES': ('rest_framework.permissions.IsAuthenticated',)
 }
