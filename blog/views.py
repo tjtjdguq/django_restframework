@@ -166,9 +166,19 @@ def post_list_first(request):
 @api_view(['POST'])
 @permission_classes((AllowAny,))
 def login(request):
+<<<<<<< HEAD
     username = request.GET.get('username')
     #email = request.data.get('email')
     password = request.GET.get('password')
+=======
+    #username = request.data.get('username')
+    username = request.GET.get('username')
+    #email = request.data.get('email')
+    password = request.GET.get('password')
+
+    print('===> username ', username)
+    print('===> password ', password)
+>>>>>>> 21b07698086c43279369571f1e1eb7019197f725
 
     if username is None or password is None:
         return Response({'error': 'Please provide both username and password'},
